@@ -15,14 +15,13 @@
       <td><%= article.text %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Delete', article_path(article),
+              method: :delete %></td>
     </tr>
   <% end %>
 </table>
 <br/>
-<h1>Hello, Rails! in Addition To Add New Article</h1>
+<h2>Hello, <%= current_user.email %> in Addition To Add New Article</h1>
 <h2>
 <%= link_to 'New article', new_article_path %>
 </h2>

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'welcome#index'
   get 'welcome/index'
   get 'welcome/hi', to:'welcome#index'
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   # The Past Line Equals These 7 Lines
   # get 'articles', to: 'articles#index'
   # get 'articles/new', to: 'articles#new'

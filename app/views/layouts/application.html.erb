@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Beta Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      Welcome <%= current_user.email %> | <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,19 @@
+
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %> 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <%= link_to 'Delete Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure you want to Delete This Comment?' } %>
+  &nbsp | &nbsp
+  <%= link_to 'Edit Comment', edit_article_comment_path(comment.article,comment) %>
+  
+  
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+--------------------------------------------
