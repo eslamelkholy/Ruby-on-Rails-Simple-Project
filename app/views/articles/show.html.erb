@@ -4,9 +4,12 @@
 <br>
     <div class="card">
       <h4 class="card-header"><%= @article.title %>
-      <div style="float:right;">
+      <% if current_user.admin || current_user.id == @article.user_id %>
+        <div style="float:right;">
         <%= link_to 'Edit Article', edit_article_path(@article),:class => "btn btn-success" %>
       </div>
+      <% end %>
+      
       </h4>
       
       <div class="card-body">
