@@ -1,29 +1,34 @@
-<h1>Listing Articles</h1>
+<div class="container">
+
+  <h1 style="color: tomato;">Listing Articles</h1>
  
 
 
-<table>
+<table class="table text-center bg-dark text-light">
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th></th>
+    <th>Operations</th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Show', article_path(article), :class => "btn btn-info" %>
       <% if current_user.admin || current_user.id == article.user_id %>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Delete', article_path(article),
-              method: :delete %></td>
+        <%= link_to 'Edit', edit_article_path(article), :class => "btn btn-success" %>
+        <%= link_to 'Delete', article_path(article),
+              method: :delete, :class => "btn btn-danger" %>
       <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
 <br/>
 <h2>Hello, <%= current_user.name %> in Addition To Add New Article</h1>
 <h2>
-<%= link_to 'New article', new_article_path %>
+<%= link_to 'New article', new_article_path,:class => "btn btn-success" %>
 </h2>
+
+</div>
